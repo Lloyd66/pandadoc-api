@@ -44,7 +44,7 @@ document_api.status(token, document_id) # returns JSON
 document_api.details(token, document_id) # returns JSON
 
 # Delete a document
-document_api.delete(token, document_id)
+document_api.delete(token, document_id) # returns JSON
 
 # Send Document
 document_api.send_doc(token, document_id, params = {}) # returns JSON
@@ -68,7 +68,7 @@ Call the API
 template_api.list(token, params = {}) # returns JSON
 
 # Template Details
-tempolate_api.details(token, template_id) # returns JSON
+template_api.details(token, template_id) # returns JSON
 ```
 
 ## Development
