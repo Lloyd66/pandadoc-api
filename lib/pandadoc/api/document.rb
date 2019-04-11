@@ -35,7 +35,8 @@ module Pandadoc
           tokens: { required: false, type: Array },
           fields: { required: false, type: Hash },
           metadata: { required: false, type: Hash },
-          pricing_tables: { required: false, type: Array }
+          pricing_tables: { required: false, type: Array },
+          tags: { required: false, type: Array}
         }
 
         client.post_json '/documents', token, validated_params(params, validations)
