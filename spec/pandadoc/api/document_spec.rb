@@ -57,6 +57,14 @@ describe Pandadoc::Api::Document do
 
       expect(subject.create(token, params)).to eq response
     end
+
+    it 'allows tags as params' do
+      params = { name: 'My Doc', template_uuid: '1234', recipients: ['a@a.com'], tags: ['test_tag'] }
+
+      subject.create(token, params)
+
+      expect(client_spy).to have_received(:post_json).with('/documents', token, params)
+    end
   end
 
   describe 'status' do
