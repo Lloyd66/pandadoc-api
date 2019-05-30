@@ -16,12 +16,14 @@ module Pandadoc
       class ParameterTypeError < StandardError
         attr_reader :received
         attr_reader :requested
+        attr_reader :parameter
 
-        def initialize(message, received, requested)
+        def initialize(message, parameter, received, requested)
           # Call the parent's constructor to set the message
           super(message)
 
           # Store the action in an instance variable
+          @parameter = parameter
           @received = received
           @requested = requested
         end
@@ -38,7 +40,7 @@ module Pandadoc
 
           validators_type_array = validators[:type].is_a?(Array) ? validators[:type] : [validators[:type]]
           if valid_params[key] && !validators_type_array.include?(valid_params[key].class)
-            raise ParameterTypeError.new("Invalid parameter type, received #{valid_params[key].class} requested #{validators[:type]}", valid_params[:key].class, validators[:type])
+            raise ParameterTypeError.new("Invalid parameter type, received #{valid_params[key].class} requested #{validators[:type]}", key, valid_params[:key].class, validators[:type])
           end
         end
 
