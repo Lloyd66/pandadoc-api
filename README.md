@@ -23,6 +23,14 @@ Or install it yourself as:
 
 ## Usage
 
+Authentication
+```ruby
+#Authentication with api_key
+auth =  { api_key: API_KEY }
+
+#Authentication with token
+auth =  { token: TOKEN }
+
 #### Documents
 Create a new instance
 ```ruby
@@ -32,28 +40,28 @@ document_api = Pandadoc::Api::Document.new
 Call the API
 ```ruby
 # List Documents
-document_api.list(token, params = {}) # returns JSON
+document_api.list(auth, params = {}) # returns JSON
 
 # Create Document from PandaDoc Template
-document_api.create(token, params = {}) # returns JSON
+document_api.create(auth, params = {}) # returns JSON
 
 # Document Status
-document_api.status(token, document_id) # returns JSON
+document_api.status(auth, document_id) # returns JSON
 
 # Document Details
-document_api.details(token, document_id) # returns JSON
+document_api.details(auth, document_id) # returns JSON
 
 # Delete a document
-document_api.delete(token, document_id) # returns JSON
+document_api.delete(auth, document_id) # returns JSON
 
 # Send Document
-document_api.send_doc(token, document_id, params = {}) # returns JSON
+document_api.send_doc(auth, document_id, params = {}) # returns JSON
 
 # Create a Document Link
-document_api.link(token, document_id, params = {}) # returns String
+document_api.link(auth, document_id, params = {}) # returns String
 
 # Download Document
-document_api.download(token, document_id) # returns PDF File
+document_api.download(auth, document_id) # returns PDF File
 ```
 
 #### Templates
@@ -65,10 +73,10 @@ template_api = Pandadoc::Api::Template.new
 Call the API
 ```ruby
 # List Templates
-template_api.list(token, params = {}) # returns JSON
+template_api.list(auth, params = {}) # returns JSON
 
 # Template Details
-template_api.details(token, template_id) # returns JSON
+template_api.details(auth, template_id) # returns JSON
 ```
 
 ## Development

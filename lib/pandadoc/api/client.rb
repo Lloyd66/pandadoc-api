@@ -21,10 +21,16 @@ module Pandadoc
 
       private
 
-      def default_headers(token)
-        {
-          'Authorization' => "Bearer #{token}"
-        }
+      def default_headers(config)
+        if(!config[:token].blank?)
+          {
+            'Authorization' => "Bearer #{token}"
+          }
+        else
+           {
+            'Authorization' => "API-Key #{config[:api_key]}"
+          }
+        end
       end
 
       def build_uri(path)
